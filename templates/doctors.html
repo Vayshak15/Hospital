@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-primary fw-bold mb-4">Meet Our Doctors</h2>
+    <p class="text-center text-muted mb-5">Our team of dedicated specialists is here to provide you with the best healthcare.</p>
+
+    <div class="row g-4 justify-content-center">
+      {% for d in doc %}
+      <div class="col-md-4 col-sm-6">
+        <div class="card border-0 shadow-lg rounded-4 h-100 text-center p-3">
+          <img src="{{ d.doct_image.url }}" class="card-img-top rounded-circle mx-auto shadow-sm"
+               alt="Doctor {{ d.doct_name }}" style="width:150px; height:150px; object-fit:cover; margin-top:-60px; border:5px solid #fff;">
+          <div class="card-body mt-4">
+            <h5 class="fw-bold text-dark">Dr. {{ d.doct_name }}</h5>
+            <p class="text-muted mb-1">{{ d.doct_spec }}</p>
+            <span class="badge bg-primary">{{ d.dep_name }} Department</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

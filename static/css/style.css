@@ -1,0 +1,70 @@
+body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+
+      .nav-link {
+        transition: all 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #ffeeba !important;
+        text-decoration: underline;
+      }
+
+      footer {
+        background-color: #0056b3;
+      }
+
+      footer i {
+        transition: color 0.3s;
+      }
+
+      footer i:hover {
+        color: #ffc107;
+      }
+
+      .footer-contact {
+        font-size: 1.1rem;
+      }/* Doctor image in hero section */
+  .doctor-hero-img {
+    max-width: 350px; /* control image size */
+    height: auto;
+  }
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+  }
+  #chatbot-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  #chatbot-popup {
+    display: none;
+    width: 300px;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+  }
+  .hover-shadow:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+  }li:hover{
+     background-color: gray;
+     border-radius:10px;
+     border:1px solid yellow;
+}

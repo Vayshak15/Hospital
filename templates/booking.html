@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Booking
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-5">
+            <h2 class="text-center text-primary fw-bold mb-4">Book an Appointment</h2>
+            <p class="text-center text-muted mb-4">Fill in your details and we’ll confirm your appointment shortly.</p>
+
+            <form action="" method="POST" class="text-start">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <div class="d-grid mt-4">
+                <button class="btn btn-primary btn-lg rounded-3" type="submit">
+                  Confirm Appointment
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

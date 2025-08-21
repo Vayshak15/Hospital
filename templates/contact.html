@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<!-- Hero Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="{% static 'images/doctor.jpg' %}" alt="City Hospital"
+             class="img-fluid rounded shadow-lg">
+      </div>
+      <div class="col-lg-6 text-center text-lg-start">
+        <h4 class="text-muted">We have</h4>
+        <!-- Animated Counter -->
+        <h2 class="fw-bold text-primary display-6">
+          <span id="patient-counter" data-target="7630">0</span>+ Happy Patients
+        </h2>
+        <p class="mt-3 text-secondary fs-5">
+          City Hospital is an integrated healthcare system serving the Greater Kochi region
+          in Kerala, India. With world-class facilities and a patient-first approach,
+          we’re here to care for your health and well-being.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Counter Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counter = document.getElementById("patient-counter");
+  const target = +counter.getAttribute("data-target");
+  let count = 0;
+  const speed = 50; // smaller = faster
+
+  const updateCounter = () => {
+    if (count < target) {
+      count += Math.ceil(target / 100); // increments smoothly
+      counter.textContent = count > target ? target : count;
+      setTimeout(updateCounter, speed);
+    }
+  };
+
+  updateCounter();
+});
+</script>
+
+{% endblock %}
+

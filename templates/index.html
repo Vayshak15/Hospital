@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% load static %}
+
+<!-- Hero Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #e9f3ff, #ffffff);">
+  <div class="container d-flex flex-column flex-lg-row align-items-center">
+    <div class="text-center text-lg-start pe-lg-5 mb-4 mb-lg-0">
+      <h1 class="display-4 fw-bold text-primary">City Hospital</h1>
+      <p class="lead text-muted mb-4">At our hospital, we believe that life is priceless. Our preference will always be life over money. Every decision we make, every treatment we provide, and every service we deliver is guided by the principle that patient care and well-being come first. We are committed to offering compassionate, affordable, and high-quality healthcare—because for us, saving lives is more important than profit.</p>
+      <a href="{% url 'about' %}" class="btn btn-primary btn-lg me-2 shadow">Learn More</a>
+      <a href="{% url 'booking' %}" class="btn btn-outline-primary btn-lg shadow">Book Appointment</a>
+    </div>
+    <div class="text-center">
+      <!-- Adjusted Doctor Image -->
+      <img src="{% static 'images/doctor1.png' %}"
+           alt="Doctor"
+           class="img-fluid rounded shadow-lg doctor-hero-img">
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-semibold text-primary">Our Services</h2>
+    <div class="row g-4">
+      {% for icon, title, desc in services %}
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 text-center p-4 hover-shadow transition">
+          <i class="{{ icon }} fa-2x text-primary mb-3"></i>
+          <h5 class="fw-bold">{{ title }}</h5>
+          <p class="text-muted small">{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- About Us -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <h2 class="fw-bold text-primary">About Our Hospital</h2>
+        <p class="text-muted mt-3">
+          Our hospital is dedicated to providing the best possible care for our patients.
+          With a team of experienced doctors and state-of-the-art facilities, we ensure
+          high-quality treatment for every individual.
+        </p>
+        <a href="{% url 'about' %}" class="btn btn-primary mt-3 shadow">Get Started</a>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="{% static 'images/doctor3.jpg' %}" alt="Hospital" class="img-fluid rounded shadow-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctors -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-semibold text-primary">Meet Our Doctors</h2>
+    <div class="row g-4 justify-content-center">
+      {% for doc in doctors %}
+      <div class="col-md-3 col-sm-6 text-center">
+        <div class="card border-0 shadow-sm p-4 h-100 hover-shadow transition">
+          <img src="{% static doc.image %}" alt="{{ doc.name }}" class="rounded-circle mb-3 shadow" width="150" height="150">
+          <h5 class="fw-bold">{{ doc.name }}</h5>
+          <p class="text-muted small">{{ doc.specialty }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-5 bg-primary text-white text-center">
+  <div class="container">
+    <h3 class="mb-3 fw-bold">Book an Appointment</h3>
+    <p class="mb-4">Schedule a consultation with one of our specialists today.</p>
+    <a href="{% url 'booking' %}" class="btn btn-light btn-lg shadow">Get Started</a>
+  </div>
+</section>
+
+<!-- Chatbot Floating Button -->
+<div id="chatbot-container">
+  <button id="chatbot-btn" class="btn btn-primary rounded-circle shadow-lg">
+    💬
+  </button>
+  <div id="chatbot-popup" class="card shadow-lg">
+    <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+      Virtual Assistant
+      <button id="close-chat" class="btn-close btn-close-white"></button>
+    </div>
+    <div class="card-body" id="chat-messages" style="height:250px; overflow-y:auto;">
+      <p class="text-muted small">👋 Hello! How can I help you today?</p>
+    </div>
+    <div class="card-footer d-flex">
+      <input type="text" id="chat-input" class="form-control me-2" placeholder="Type your message...">
+      <button id="send-btn" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Styles -->
+
+
+{% endblock %}
